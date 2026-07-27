@@ -32,7 +32,7 @@
       <a href="#campaigns">Campaigns</a>
       <a href="#process">Process</a>
     </nav>
-    <a class="header-cta" href="#contact">Contact us <span>↓</span></a>
+    <a class="header-cta" href="#contact" data-email-dialog-trigger>Contact us <span>↗</span></a>
   </header>
 
   <main id="main">
@@ -46,7 +46,7 @@
         <h1>Your next sound,<br>inside a story<br><em>people feel.</em></h1>
         <p class="hero-intro">Somnicore Media turns official sounds into original cat-led short-form campaigns—built around emotion, humor, visual storytelling, and repeatable creative formats.</p>
         <div class="hero-actions">
-          <a class="button button-dark" href="#contact">Start with a 10-video test <span>↓</span></a>
+          <a class="button button-dark" href="#contact" data-email-dialog-trigger>Start with a 10-video test <span>↗</span></a>
           <a class="text-link" href="#work">See the formats <span>↓</span></a>
         </div>
         <div class="hero-proof" aria-label="Campaign principles">
@@ -156,7 +156,7 @@
             <li>Required sponsorship disclosure</li>
             <li>Post-campaign reporting</li>
           </ul>
-          <a href="#contact">Check availability <span>↓</span></a>
+          <a href="#contact" data-email-dialog-trigger>Check availability <span>↗</span></a>
         </article>
 
         <article class="package reveal">
@@ -170,7 +170,7 @@
             <li>Optional usage rights</li>
             <li>Expansion by mutual agreement</li>
           </ul>
-          <a href="#contact">Discuss a rollout <span>↓</span></a>
+          <a href="#contact" data-email-dialog-trigger>Discuss a rollout <span>↗</span></a>
         </article>
       </div>
       <p class="no-guarantee reveal">Campaigns guarantee agreed deliverables—not views, streams, virality, or sound adoption.</p>
@@ -215,18 +215,37 @@
       <div class="final-disc" aria-hidden="true"><span>♪</span></div>
       <p class="section-kicker reveal">Direct partnership contact</p>
       <h2 class="reveal" id="contact-heading">Have a track<br>that fits this<br><em>world?</em></h2>
-      <p class="contact-intro reveal">Contact us directly with the artist, track link, target date, and campaign goal. If your usual email app does not open, use Gmail, Outlook, or copy the address.</p>
-      <a class="button button-light contact-email reveal" href="mailto:partnerships@somnicoremedia.com?subject=Sound%20campaign%20inquiry&body=Hello%2C%0A%0AArtist%20%2F%20team%3A%0ATrack%20link%3A%0ATarget%20date%3A%0ACampaign%20goal%3A%0A%0AThanks!">Email us directly <span>↗</span></a>
-      <a class="contact-address reveal" href="mailto:partnerships@somnicoremedia.com">partnerships@somnicoremedia.com</a>
-      <div class="contact-alternatives reveal" aria-label="Alternative contact options">
-        <button type="button" data-copy-email="partnerships@somnicoremedia.com"><span data-copy-label>Copy email address</span></button>
-        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=partnerships%40somnicoremedia.com&amp;su=Sound%20campaign%20inquiry&amp;body=Hello%2C%0A%0AArtist%20%2F%20team%3A%0ATrack%20link%3A%0ATarget%20date%3A%0ACampaign%20goal%3A%0A%0AThanks!" target="_blank" rel="noopener">Open Gmail ↗</a>
-        <a href="https://outlook.office.com/mail/deeplink/compose?to=partnerships%40somnicoremedia.com&amp;subject=Sound%20campaign%20inquiry&amp;body=Hello%2C%0A%0AArtist%20%2F%20team%3A%0ATrack%20link%3A%0ATarget%20date%3A%0ACampaign%20goal%3A%0A%0AThanks!" target="_blank" rel="noopener">Open Outlook ↗</a>
+      <p class="contact-intro reveal">Contact us directly with the artist, track link, target date, and campaign goal. Choose the email service you already use and a prepared message will open.</p>
+      <a class="button button-light contact-email reveal" href="mailto:partnerships@somnicoremedia.com?subject=Sound%20campaign%20inquiry&body=Hello%2C%0A%0AArtist%20%2F%20team%3A%0ATrack%20link%3A%0ATarget%20date%3A%0ACampaign%20goal%3A%0A%0AThanks!" data-email-dialog-trigger>Open an email <span>↗</span></a>
+      <a class="contact-address reveal" href="mailto:partnerships@somnicoremedia.com" data-email-dialog-trigger>partnerships@somnicoremedia.com</a>
+      <div class="contact-copy-zone" data-copy-zone>
+        <div class="contact-alternatives reveal" aria-label="Direct email options">
+          <button type="button" data-copy-email="partnerships@somnicoremedia.com"><span data-copy-label>Copy email address</span></button>
+          <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=partnerships%40somnicoremedia.com&amp;su=Sound%20campaign%20inquiry&amp;body=Hello%2C%0A%0AArtist%20%2F%20team%3A%0ATrack%20link%3A%0ATarget%20date%3A%0ACampaign%20goal%3A%0A%0AThanks!" target="_blank" rel="noopener">Open Gmail ↗</a>
+          <a href="https://outlook.office.com/mail/deeplink/compose?to=partnerships%40somnicoremedia.com&amp;subject=Sound%20campaign%20inquiry&amp;body=Hello%2C%0A%0AArtist%20%2F%20team%3A%0ATrack%20link%3A%0ATarget%20date%3A%0ACampaign%20goal%3A%0A%0AThanks!" target="_blank" rel="noopener">Open Outlook ↗</a>
+        </div>
+        <p class="contact-status" data-copy-status role="status" aria-live="polite"></p>
       </div>
-      <p class="contact-status" data-copy-status role="status" aria-live="polite"></p>
       <a class="tiktok-link reveal" href="https://www.tiktok.com/@somni.core" target="_blank" rel="noopener">Visit @somni.core on TikTok</a>
     </section>
   </main>
+
+  <dialog class="email-dialog" data-email-dialog aria-labelledby="email-dialog-title">
+    <div class="email-dialog-card" data-copy-zone>
+      <button class="email-dialog-close" type="button" data-email-dialog-close aria-label="Close email options">×</button>
+      <p class="section-kicker">Contact Somnicore Media</p>
+      <h2 id="email-dialog-title">Choose your<br><em>email app.</em></h2>
+      <p>Select the inbox you already use. The recipient, subject, and partnership questions will be filled in automatically.</p>
+      <div class="email-dialog-options">
+        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=partnerships%40somnicoremedia.com&amp;su=Sound%20campaign%20inquiry&amp;body=Hello%2C%0A%0AArtist%20%2F%20team%3A%0ATrack%20link%3A%0ATarget%20date%3A%0ACampaign%20goal%3A%0A%0AThanks!" target="_blank" rel="noopener"><strong>Gmail</strong><span>Open browser compose ↗</span></a>
+        <a href="https://outlook.office.com/mail/deeplink/compose?to=partnerships%40somnicoremedia.com&amp;subject=Sound%20campaign%20inquiry&amp;body=Hello%2C%0A%0AArtist%20%2F%20team%3A%0ATrack%20link%3A%0ATarget%20date%3A%0ACampaign%20goal%3A%0A%0AThanks!" target="_blank" rel="noopener"><strong>Outlook</strong><span>Open browser compose ↗</span></a>
+        <a href="mailto:partnerships@somnicoremedia.com?subject=Sound%20campaign%20inquiry&body=Hello%2C%0A%0AArtist%20%2F%20team%3A%0ATrack%20link%3A%0ATarget%20date%3A%0ACampaign%20goal%3A%0A%0AThanks!"><strong>Default mail app</strong><span>Open installed app ↗</span></a>
+        <button type="button" data-copy-email="partnerships@somnicoremedia.com"><strong data-copy-label>Copy email address</strong><span>Use any other inbox</span></button>
+      </div>
+      <p class="email-dialog-address">partnerships@somnicoremedia.com</p>
+      <p class="contact-status" data-copy-status role="status" aria-live="polite"></p>
+    </div>
+  </dialog>
 
   <footer>
     <a class="brand brand-footer" href="#top"><span class="brand-mark" aria-hidden="true"><i></i></span><span>SOMNICORE <em>MEDIA</em></span></a>

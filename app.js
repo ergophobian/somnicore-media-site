@@ -32,8 +32,42 @@ document.querySelectorAll('.faq details').forEach((detail) => {
   });
 });
 
-const copyEmailButton = document.querySelector('[data-copy-email]');
-const copyStatus = document.querySelector('[data-copy-status]');
+const emailDialog = document.querySelector('[data-email-dialog]');
+const emailDialogTriggers = document.querySelectorAll('[data-email-dialog-trigger]');
+const emailDialogClose = document.querySelector('[data-email-dialog-close]');
+
+const openEmailDialog = () => {
+  if (!emailDialog) return;
+  if (typeof emailDialog.showModal === 'function') {
+    if (!emailDialog.open) emailDialog.showModal();
+  } else {
+    emailDialog.setAttribute('open', '');
+  }
+  document.body.classList.add('dialog-open');
+};
+
+const closeEmailDialog = () => {
+  if (!emailDialog) return;
+  if (typeof emailDialog.close === 'function' && emailDialog.open) {
+    emailDialog.close();
+  } else {
+    emailDialog.removeAttribute('open');
+  }
+  document.body.classList.remove('dialog-open');
+};
+
+emailDialogTriggers.forEach((trigger) => {
+  trigger.addEventListener('click', (event) => {
+    event.preventDefault();
+    openEmailDialog();
+  });
+});
+
+emailDialogClose?.addEventListener('click', closeEmailDialog);
+emailDialog?.addEventListener('close', () => document.body.classList.remove('dialog-open'));
+emailDialog?.addEventListener('click', (event) => {
+  if (event.target === emailDialog) closeEmailDialog();
+});
 
 const copyWithFallback = (text) => {
   const field = document.createElement('textarea');
@@ -48,10 +82,11 @@ const copyWithFallback = (text) => {
   if (!copied) throw new Error('Copy command failed');
 };
 
-if (copyEmailButton) {
+document.querySelectorAll('[data-copy-email]').forEach((copyEmailButton) => {
   copyEmailButton.addEventListener('click', async () => {
     const email = copyEmailButton.dataset.copyEmail;
     const label = copyEmailButton.querySelector('[data-copy-label]');
+    const copyStatus = copyEmailButton.closest('[data-copy-zone]')?.querySelector('[data-copy-status]');
 
     try {
       if (navigator.clipboard?.writeText) {
@@ -60,15 +95,15 @@ if (copyEmailButton) {
         copyWithFallback(email);
       }
       label.textContent = 'Email copied ✓';
-      copyStatus.textContent = `${email} copied to your clipboard.`;
+      if (copyStatus) copyStatus.textContent = `${email} copied to your clipboard.`;
     } catch {
-      label.textContent = 'Select email above';
-      copyStatus.textContent = `Copy this address: ${email}`;
+      label.textContent = 'Copy manually';
+      if (copyStatus) copyStatus.textContent = `Copy this address: ${email}`;
     }
 
     window.setTimeout(() => {
       label.textContent = 'Copy email address';
-      copyStatus.textContent = '';
+      if (copyStatus) copyStatus.textContent = '';
     }, 4000);
   });
-}
+});
